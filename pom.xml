@@ -114,7 +114,7 @@
                 <filtering>true</filtering>
             </resource>
             <resource>
-                <directory>client/static</directory>
+                <directory>client/build</directory>
             </resource>
         </resources>
     </build>

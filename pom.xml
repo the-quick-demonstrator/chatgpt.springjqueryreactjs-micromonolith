@@ -74,9 +74,19 @@
                             <goal>install-node-and-npm</goal>
                         </goals>
                         <configuration>
-                            <nodeVersion>v19.7.0</nodeVersion>
+                            <nodeVersion>v12.3.1</nodeVersion>
                             <npmVersion>6.9.0</npmVersion>
                             <workingDirectory>${client-directory}</workingDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <workingDirectory>${client-directory}</workingDirectory>
+                            <arguments>install</arguments>
                         </configuration>
                     </execution>
                     <execution>

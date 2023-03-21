@@ -22,7 +22,7 @@
     </parent>
 
     <properties>
-        <client-directory>${project.basedir}/../client</client-directory>
+        <client-directory>${project.basedir}/client</client-directory>
         <java.version>11</java.version>
         <spring-boot.version>2.6.3</spring-boot.version>
     </properties>
@@ -85,6 +85,7 @@
                             <goal>npm</goal>
                         </goals>
                         <configuration>
+                            <workingDirectory>${client-directory}</workingDirectory>
                             <arguments>install</arguments>
                         </configuration>
                     </execution>
@@ -94,6 +95,7 @@
                             <goal>npm</goal>
                         </goals>
                         <configuration>
+                            <workingDirectory>${client-directory}</workingDirectory>
                             <arguments>run build</arguments>
                         </configuration>
                     </execution>

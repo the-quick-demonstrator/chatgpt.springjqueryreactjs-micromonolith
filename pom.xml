@@ -22,9 +22,11 @@
     </parent>
 
     <properties>
+        <client-directory>${project.basedir}/../client</client-directory>
         <java.version>11</java.version>
         <spring-boot.version>2.6.3</spring-boot.version>
     </properties>
+
 
     <dependencies>
         <!-- Spring Boot Starter Web -->
@@ -60,6 +62,44 @@
 
     <build>
         <plugins>
+            <!-- npm plugin -->
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.7.6</version>
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <configuration>
+                            <nodeVersion>v12.3.1</nodeVersion>
+                            <npmVersion>6.9.0</npmVersion>
+                            <workingDirectory>${client-directory}</workingDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm run build</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run build</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
             <!-- Spring Boot Maven Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
